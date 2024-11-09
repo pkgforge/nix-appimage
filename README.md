@@ -7,5 +7,5 @@
 - #### Use
 ```bash
 !#${APP} --> https://search.nixos.org/packages
-nix bundle --bundler "github:pkgforge/pkgcache?ref=main" "nixpkgs#${APP}" --out-link "./${APP}.AppImage" --log-format bar-with-logs 
+nix bundle --bundler "github:pkgforge/nix-appimage?ref=main" "nixpkgs#${APP}" --out-link "./${APP}.AppImage" --log-format bar-with-logs 
 ```
