@@ -24,7 +24,9 @@ let
   commonArgs = [
     "-offset $(stat -L -c%s ${lib.escapeShellArg mkappimage-runtime})" # squashfs comes after the runtime
     "-all-root" #chown to root, same as -root-owned
+    "-b 1M" #set block size to 1MB
     "-no-xattrs" #Don't store Extended Attributes
+    "-Xcompression-level 1" #We repack it later anyway, default is 9
   ] ++ squashfsArgs;
 in
 runCommand name
@@ -46,7 +48,6 @@ runCommand name
       # symlink entrypoint to the executable to run
       "entrypoint s 555 0 0 ${program}"
     ])
-
     "-no-strip" # don't strip leading dirs, to preserve the fact that everything's in the nix store
   ] ++ commonArgs)}
 
@@ -55,8 +56,6 @@ runCommand name
     # no -no-strip since we *do* want to strip leading dirs now
     "${mkappimage-apprun}"
     "$out"
-    "-b 1M" #set block size to 1MB
-    "-mkfs-time 0" #set fielsystem creation to 0
     "-no-recovery" #Don't generate recovery files, prevents "No such file or directory"
   ] ++ commonArgs)}
 

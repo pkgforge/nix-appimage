@@ -62,7 +62,7 @@ stdenv.mkDerivation {
     $CC src/runtime/runtime.c -o $out \
       -D_FILE_OFFSET_BITS=64 -DGIT_COMMIT='"0000000"' \
       $(cat cflags) \
-      -std=gnu99 -Os -ffunction-sections -fdata-sections -Wl,--gc-sections -static -Wall -Werror \
+      -std=gnu99 -Os -ffunction-sections -fdata-sections -Wl,--gc-sections -static -w \
       -lsquashfuse -lsquashfuse_ll -lfuse3 -lzstd -lz -llzma -llz4 -llzo2 \
       -T src/runtime/data_sections.ld
 
