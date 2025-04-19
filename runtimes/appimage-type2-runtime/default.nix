@@ -15,8 +15,8 @@ let
   src = fetchFromGitHub {
     owner = "AppImage";
     repo = "type2-runtime";
-    rev = "01164bfcbc8dd2bd0d7e3706f97035108d6b91ba";
-    hash = "sha256-GR3LMuWMSafQmc2RQyveue3sq+HYBtl+VkcZVYMS0CI=";
+    rev = "2df896eb93b2c63664605cd531c19d09a4266894"; #https://github.com/AppImage/type2-runtime/commit/2df896eb93b2c63664605cd531c19d09a4266894
+    hash = "sha256-0rg2alfb8fwld86gdhhdlm1jdmyw8scbjsyp00himwiz47vv3r5g"; #nix-prefetch-url --unpack https://github.com/AppImage/type2-runtime/archive/${rev}.tar.gz
   };
 
   fuse3' = fuse3.overrideAttrs (old: {
