@@ -16,7 +16,10 @@ let
     owner = "AppImage";
     repo = "type2-runtime";
     rev = "2df896eb93b2c63664605cd531c19d09a4266894"; #https://github.com/AppImage/type2-runtime/commit/2df896eb93b2c63664605cd531c19d09a4266894
-    hash = "sha256-0rg2alfb8fwld86gdhhdlm1jdmyw8scbjsyp00himwiz47vv3r5g"; #nix-prefetch-url --unpack https://github.com/AppImage/type2-runtime/archive/${rev}.tar.gz
+    sha256 = "0rg2alfb8fwld86gdhhdlm1jdmyw8scbjsyp00himwiz47vv3r5g";
+    #hash = "sha256-0rg2alfb8fwld86gdhhdlm1jdmyw8scbjsyp00himwiz47vv3r5g";
+    #nix-prefetch-url --unpack https://github.com/AppImage/type2-runtime/archive/${rev}.tar.gz
+    # nix hash to-sri --type sha256 ${SHA}
   };
 
   fuse3' = fuse3.overrideAttrs (old: {
