@@ -11,15 +11,15 @@ let
  #https://github.com/pkgforge/nix-appimage/releases/tag/bwrap
   remoteBwrap = fetchurl {
     url = "https://github.com/pkgforge/nix-appimage/releases/download/bwrap/bwrap-${arch}";
-    sha256 = if arch == "x86_64" then "fdfd31dd4540d16d8ad2e77612ce8b683f5d115c6b4ab7894e88a12bc437f0e6"
-              else if arch == "aarch64" then "5d58302e79ddea0705f866afb018be83000e95496d145db72febea9ec4477ac3"
+    sha256 = if arch == "x86_64" then "64ce8bae20ba27fdbf832eb830e06394a0eb77bc15b588e9b66a40a17b23affb"
+              else if arch == "aarch64" then "aaf6282c278a23f8492a57e8b484867ca609220f949d89686ab90713c3dfead5"
               else throw "Unsupported architecture: ${arch}";
   };
   #Patched to allow nested bwraps for fun and profit
   remoteBwrapPatched = fetchurl {
     url = "https://github.com/pkgforge/nix-appimage/releases/download/bwrap/bwrap-patched-${arch}";
-    sha256 = if arch == "x86_64" then "6859d8b0eaa5dbc63ce0b07f12355df528456eacf462361ad01b9defe6709fc3"
-              else if arch == "aarch64" then "0a699ed6a8cc33da1c5c074990aed3561631f877688ced742f7a13d880096ddc"
+    sha256 = if arch == "x86_64" then "6af6dc32bcbcec50ce79217163f5bacda090afaf10a8660d6ef1cca2240d714f"
+              else if arch == "aarch64" then "9a0c21cd3f64f0f6869bb5ba423692e2428b23be18acbf90ce8fd921f02fefc6"
               else throw "Unsupported architecture: ${arch}";
   };
 in

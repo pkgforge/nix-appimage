@@ -66,6 +66,7 @@ stdenv.mkDerivation {
     $PKG_CONFIG --cflags fuse3 > cflags
   '';
 
+  #https://github.com/AppImage/type2-runtime/blob/main/src/runtime/Makefile
   buildPhase = ''
     $CC src/runtime/runtime.c -o $out \
       -D_FILE_OFFSET_BITS=64 -DGIT_COMMIT='"0000000"' \
