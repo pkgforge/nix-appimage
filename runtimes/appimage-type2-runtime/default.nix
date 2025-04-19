@@ -58,9 +58,9 @@ stdenv.mkDerivation {
     lzo
   ];
 
-  patchPhase = ''
-    sed -e '/sqfs_usage/s/);/, true\0/' -i src/runtime/runtime.c
-  '';
+  #patchPhase = ''
+  #  sed -e '/sqfs_usage/s/);/, true\0/' -i src/runtime/runtime.c
+  #'';
 
   configurePhase = ''
     $PKG_CONFIG --cflags fuse3 > cflags
