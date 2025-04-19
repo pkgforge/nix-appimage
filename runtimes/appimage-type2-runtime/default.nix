@@ -8,6 +8,7 @@
 , xz
 , lz4
 , lzo
+, lib
 }:
 
 let
@@ -25,9 +26,13 @@ let
     ];
   });
 
-  squashfuse' = (squashfuse.override {
+  squashfuse' = (squashfuse.override (
+  lib.optionalAttrs (squashfuse ? override && squashfuse.override ? __functionArgs && squashfuse.override.__functionArgs ? fuse3) {
+    fuse3 = fuse3';
+  } // lib.optionalAttrs (squashfuse ? override && squashfuse.override ? __functionArgs && squashfuse.override.__functionArgs ? fuse) {
     fuse = fuse3';
-  }).overrideAttrs (old: {
+  }
+  )).overrideAttrs (old: {
     postInstall = (old.postInstall or "") + ''
       cp *.h -t $out/include/squashfuse/
     '';
