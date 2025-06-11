@@ -132,7 +132,7 @@ jobs:
           pushd "${GITHUB_WORKSPACE}/main" >/dev/null 2>&1 && git pull origin main && popd >/dev/null 2>&1
         continue-on-error: true
 
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: stefanzweifel/git-auto-commit-action@v6
         with:
           repository: ./main        
           commit_user_name: Azathothas
